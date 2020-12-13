@@ -10,6 +10,7 @@ public class Patient {
 	String date_de_naissance;
 	int telephone;
 
+
 	public Patient(String prenom, String nom, char sexe, String date_de_naissance, int telephone, String adresse) {
 		this.prenom = prenom;
 		this.nom = nom;
@@ -23,5 +24,6 @@ public class Patient {
 	public String toString() {
 		return "Patients{" + "nom='" + nom + '\'' + ", prenom='" + prenom + '\'' + ", adresse='" + adresse + '\'' + '}';
 	}
+
 
 }

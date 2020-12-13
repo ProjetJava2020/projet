@@ -19,9 +19,9 @@ public class Controle_medical {
 	
 	public static Controle_medical ajouter_controle_medical() {
 		/**
-		 * Fonction pour ajouer une nouveau controle médical au dossier du client
+		 * Fonction pour ajouer une nouveau controle mï¿½dical au dossier du client
 		 */
-		String tension_arterielle = "7/12";
+		String tension_arterielle = "aa";
 		int temperature = 37;
 		return new Controle_medical(tension_arterielle, temperature	);
 	}

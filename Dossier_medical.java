@@ -9,8 +9,9 @@ import java.util.HashMap;
 public class Dossier_medical extends Dossier {
 	String groupe_sanguin, allergies;
 	Personnel_medical medecin_traitant;
-	HashMap<String, String> autres_informations;
+	HashMap<String, Object> autres_informations;
 	ArrayList<Controle_medical> controles_medicaux = new ArrayList<Controle_medical>();
+	public static ArrayList<Dossier_medical> tous_les_dossiers = new ArrayList<>();
 
 	public Dossier_medical(String date_creation, Patient patient, String groupe_sanguin, String allergies) {
 		super(date_creation, patient);
@@ -38,6 +39,7 @@ public class Dossier_medical extends Dossier {
 			776735974,
 			"Mbour 3"
 		);
+
 		return new Dossier_medical(creation, patient, "O+", "");
 	}
 	
@@ -63,6 +65,9 @@ public class Dossier_medical extends Dossier {
 			System.out.println("Dossier_medical{" + "groupe_sanguin='" + groupe_sanguin + '\'' + ", allergies='"
 					+ allergies + '\'' + ", autres_informations='" + autres_informations + '\'' + '}');
 		}
+	}
+	public Dossier_medical set_autres_informations(){
+		return null;
 	}
 
 }
