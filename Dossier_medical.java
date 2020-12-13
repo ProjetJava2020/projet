@@ -39,8 +39,9 @@ public class Dossier_medical extends Dossier {
 			776735974,
 			"Mbour 3"
 		);
-
-		return new Dossier_medical(creation, patient, "O+", "");
+		Dossier_medical new_dossier = new Dossier_medical(creation, patient, "O+", "");
+		tous_les_dossiers.add(new_dossier);
+		return new_dossier;
 	}
 	
 	public Controle_medical effectuer_controle_medical(){
@@ -60,14 +61,12 @@ public class Dossier_medical extends Dossier {
 				+ '\'' + '}');
 	}
 
-	public void affichage_detaille(Personnel_medical personnel) {
-		if (personnel.titre == "medecin") {
-			System.out.println("Dossier_medical{" + "groupe_sanguin='" + groupe_sanguin + '\'' + ", allergies='"
+	public void affichage_detaille() {
+
+		System.out.println("Dossier_medical{" + "groupe_sanguin='" + groupe_sanguin + '\'' + ", allergies='"
 					+ allergies + '\'' + ", autres_informations='" + autres_informations + '\'' + '}');
-		}
+
 	}
-	public Dossier_medical set_autres_informations(){
-		return null;
-	}
+
 
 }
