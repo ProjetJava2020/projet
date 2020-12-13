@@ -22,18 +22,19 @@ public class Dossier_administratif extends Dossier {
 		 * il continue ï¿½ entrer les autres informations
 		 */
 		String creation = new SimpleDateFormat("dd-MM-yy").format(new Date());
-		int numero = 776735974;
+		int numero = Integer.parseInt(CustomScanner.scan("Entrer le numéro de téléphone"));
+		
 		if (Dossier.dossier_patient_existe(numero) != null)
 			return Dossier.dossier_patient_existe(numero);
-		String date_adhesion = "17-09-2020";
+		String date_adhesion = CustomScanner.scan("Entrer la date d'adhésion");
 
 		Patient patient = new Patient(
-			"Alioune", 
-			"Sarr",
-			'M',
-			"17-09-1998", 
-			776735974,
-			"Mbour 3"
+			CustomScanner.scan("Entrer le nom"), 
+			CustomScanner.scan("Entrer le prénom"),
+			CustomScanner.scan("Entrer le genre (M/F)").toCharArray()[0],
+			CustomScanner.scan("Entrer la date de naissance"), 
+			numero,
+			CustomScanner.scan("Entrer l'adresse")
 		);
 		return new Dossier_administratif(creation, patient, date_adhesion);
 	}

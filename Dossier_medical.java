@@ -32,12 +32,12 @@ public class Dossier_medical extends Dossier {
 			return Dossier.dossier_patient_existe(numero);
 
 		Patient patient = new Patient(
-			"Alioune", 
-			"Sarr",
-			'M',
-			"17-09-1998", 
-			776735974,
-			"Mbour 3"
+			CustomScanner.scan("Entrer le nom"), 
+			CustomScanner.scan("Entrer le prénom"),
+			CustomScanner.scan("Entrer le genre (M/F)").toCharArray()[0],
+			CustomScanner.scan("Entrer la date de naissance"), 
+			numero,
+			CustomScanner.scan("Entrer l'adresse")
 		);
 
 		return new Dossier_medical(creation, patient, "O+", "");
@@ -54,6 +54,12 @@ public class Dossier_medical extends Dossier {
 	public void attribuer_medecin(Personnel_medical medecin) {
 		this.medecin_traitant = medecin;
 	}
+	
+	public void attribuer_lit(Hopital hopital){
+        Lits lit = hopital.avoir_lit_disponible();
+        autres_informations.put("lit", lit);
+        lit.estOccupe = true;
+    }
 	
 	public void affichage_general() {
 		System.out.println("Dossier_medical{" + "groupe_sanguin='" + groupe_sanguin + '\'' + ", allergies='" + allergies
