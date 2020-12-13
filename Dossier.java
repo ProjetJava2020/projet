@@ -19,7 +19,7 @@ public class Dossier {
     
     public static Dossier dossier_patient_existe(int telephone) {
 		/**
-		 * Cherche le patient dans la base de données grace à son numéro de téléphone.
+		 * Cherche le patient dans la base de donnï¿½es grace ï¿½ son numï¿½ro de tï¿½lï¿½phone.
 		 */
 		for(Dossier element:tous_les_dossiers) {
 			if (element.patient.telephone == telephone) return element;

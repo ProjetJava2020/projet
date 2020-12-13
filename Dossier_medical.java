@@ -21,9 +21,9 @@ public class Dossier_medical extends Dossier {
 	@Override
 	Dossier get_or_create_dossier() {
 		/***
-		 * Le personnel médical entre en premier lieux le numéro de téléphone. S'il
-		 * correspond à un patient existent, le dossier est directement retourné. Sinon,
-		 * il continue à entrer les autres informations
+		 * Le personnel mï¿½dical entre en premier lieux le numï¿½ro de tï¿½lï¿½phone. S'il
+		 * correspond ï¿½ un patient existent, le dossier est directement retournï¿½. Sinon,
+		 * il continue ï¿½ entrer les autres informations
 		 */
 		String creation = new SimpleDateFormat("dd-MM-yy").format(new Date());
 		int numero = 776735974;
