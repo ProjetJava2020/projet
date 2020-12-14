@@ -23,15 +23,15 @@ public class Dossier_medical extends Dossier {
 
 	public Dossier_medical() {
 	}
-
+	/***
+	 * Le personnel mï¿½dical entre en premier lieux le numï¿½ro de
+	 * tï¿½lï¿½phone. S'il correspond ï¿½ un patient existent, le dossier
+	 * est directement retournï¿½. Sinon, il continue ï¿½ entrer les autres
+	 * informations
+	 */
 	@Override
 	Dossier get_or_create_dossier() {
-		/***
-		 * Le personnel mï¿½dical entre en premier lieux le numï¿½ro de
-		 * tï¿½lï¿½phone. S'il correspond ï¿½ un patient existent, le dossier
-		 * est directement retournï¿½. Sinon, il continue ï¿½ entrer les autres
-		 * informations
-		 */
+		
 		String creation = new SimpleDateFormat("dd-MM-yy").format(new Date());
 		int numero = Integer.parseInt(CustomScanner.scan("Entrer le num�ro de t�l�phone"));
 		if (Dossier_medical.dossier_patient_existe(numero) != null)
@@ -66,12 +66,12 @@ public class Dossier_medical extends Dossier {
 		}
 		System.out.println("M�decin introuvable.");
 	}
-
+	/**
+	 * Cette fonction permet d'attribuer un lit au patient. Pour cela, on s'aide de
+	 * la fonction avoir_lit_disponible qui renvoie le premier lit non-occupé.
+	 */
 	public void attribuer_lit(Hopital hopital) {
-		/**
-		 * Cette fonction permet d'attribuer un lit au patient. Pour cela, on s'aide de
-		 * la fonction avoir_lit_disponible qui renvoie le premier lit non-occupé.
-		 */
+		
 		Lits lit = hopital.avoir_lit_disponible();
 		if (lit != null) {
 			autres_informations.put("lit", lit);
@@ -83,57 +83,75 @@ public class Dossier_medical extends Dossier {
 
 	}
 
+	/**
+	 * C'est l'affichage général du dossier médical qui peut être fait par tout
+	 * le personnel.
+	 */
 	public void affichage_general() {
-		/**
-		 * C'est l'affichage général du dossier médical qui peut être fait par tout
-		 * le personnel.
-		 */
+		
 		System.out.println("Dossier_medical{patient=" + this.patient + '\'' + "groupe_sanguin='" + groupe_sanguin + '\''
 				+ ", allergies='" + allergies + '\'' + '}');
 	}
-
+	/**
+	 * C'est l'affichage génral du dossier médical réservé uniquement au
+	 * médecin.
+	 */
 	public void affichage_detaille() {
-		/**
-		 * C'est l'affichage génral du dossier médical réservé uniquement au
-		 * médecin.
-		 */
+		
 		System.out.println("Dossier_medical{patient=" + this.patient + '\'' + "groupe_sanguin='" + groupe_sanguin + '\''
 				+ ", allergies='" + allergies + '\'' + ", autres_informations='" + autres_informations + '\'' + '}');
 	}
-
+	/**
+	 * Cherche le patient dans la base de donn�es grace � son num�ro de
+	 * t�l�phone.
+	 */
 	public static Dossier_medical dossier_patient_existe(int telephone) {
-		/**
-		 * Cherche le patient dans la base de donn�es grace � son num�ro de
-		 * t�l�phone.
-		 */
+		
 		for (Dossier_medical element : dossier_medicaux) {
-			System.out.println(element.patient.telephone);
 			if (element.patient.telephone == telephone)
 				return element;
 		}
 		return null;
 	}
-
+	/**
+	 * Pour afficher l'ensemble des dossiers m�dicaux.
+	 */
 	public static void afficher_dossiers_medicaux() {
-		/**
-		 * Pour afficher l'ensemble des dossiers m�dicaux.
-		 */
+		
 		for (Dossier_medical dossier : dossier_medicaux) {
 			System.out.println(dossier);
 		}
 	}
-
+	/**
+	 * C'est l'affichage général du dossier médical qui peut être fait par tout
+	 * le personnel.
+	 */
+	public String toString() {
+		
+		return "Dossier_medical{patient=" + this.patient + '\'' + "groupe_sanguin='" + groupe_sanguin + '\''
+				+ ", allergies='" + allergies + '\'' + '}';
+	}
+	/**
+	 * Enter d'atres informations relatives au dossier m�dical.
+	 * @param titre
+	 * @param description
+	 * @return
+	 */
 	public Dossier_medical entrer_autres_informations(String titre, Object description) {
 		autres_informations.put(titre, description);
 		return (Dossier_medical) autres_informations.get(titre);
 		
 	}
-
+	/**
+	 * G�n�rer rapidement un dossier m�dical � des fins de test.
+	 * @return
+	 */
 	public static Dossier_medical populate() {
 		Dossier_medical dossier = new Dossier_medical("17-03-202",
-				new Patient("Ali", "Mbaye Nder", 'M', "17-09-1999", 11, "Mbour3"), "O+", "");
+				new Patient("Ali", "Mbaye Nder", 'M', "17-09-1999", 776735974, "Mbour3"), "O+", "");
 		dossier_medicaux.add(dossier);
 		return dossier;
 	}
+	
 
 }

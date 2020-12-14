@@ -1,5 +1,8 @@
 package hospitalisation;
 
+/**
+ * The Class Facture.
+ */
 public class Facture {
     String service, mutuelle;
     String date;
@@ -17,11 +20,11 @@ public class Facture {
         return "Factures{" + "service='" + service + '\'' + ", mutuelle='" + mutuelle + '\'' + ", date=" + date
                 + ", montant=" + montant + '}';
     }
-
+    /**
+     * Fonction pour créer une nouvelle facture.
+     */
     public static Facture etablir_facture() {
-        /**
-         * Fonction pour créer une nouvelle facture.
-         */
+        
         String service = "Analyses Medicales";
         String date = CustomScanner.scan("Entrer la date de facturation");
         float montant = Float.parseFloat(CustomScanner.scan("Entrer le montant de la facture"));
@@ -29,6 +32,13 @@ public class Facture {
         return new Facture(service, date, montant, mutuelle);
     }
 
+    /**
+	 * Gets the montant.
+	 *
+	 * @param facture
+	 *            the facture
+	 * @return the montant
+	 */
     public float getMontant(Facture facture) {
         return facture.montant;
     }

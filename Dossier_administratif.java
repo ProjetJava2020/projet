@@ -14,12 +14,13 @@ public class Dossier_administratif extends Dossier {
 
 	public Dossier_administratif(String date_creation, Patient patient, String date_adhesion) {
 		super(date_creation, patient);
-		date_adhesion = this.date_adhesion;
+		this.date_adhesion = date_adhesion;
 	}
+	/**
+	 * Cherche le patient dans la base de donn�es grace � son num�ro de t�l�phone.
+	 */
 	public static Dossier dossier_patient_existe(int telephone) {
-		/**
-		 * Cherche le patient dans la base de donn�es grace � son num�ro de t�l�phone.
-		 */
+		
 		for(Dossier element:dossiers_administratifs) {
 			if (element.patient.telephone == telephone) return element;
 		}
@@ -27,14 +28,15 @@ public class Dossier_administratif extends Dossier {
 	}
 	public Dossier_administratif() {}
 
+	/***
+	 * Le personnel administratif entre en premier lieux le numï¿½ro de
+	 * tï¿½lï¿½phone. S'il correspond ï¿½ un patient existent, le dossier est
+	 * directement retournï¿½. Sinon, il continue ï¿½ entrer les autres informations
+	 */
+
 	@Override
 	Dossier get_or_create_dossier() {
-		/***
-		 * Le personnel administratif entre en premier lieux le numï¿½ro de
-		 * tï¿½lï¿½phone. S'il correspond ï¿½ un patient existent, le dossier est
-		 * directement retournï¿½. Sinon, il continue ï¿½ entrer les autres informations
-		 */
-		String creation = new SimpleDateFormat("dd-MM-yy").format(new Date());
+				String creation = new SimpleDateFormat("dd-MM-yy").format(new Date());
 		int numero = Integer.parseInt(CustomScanner.scan("Entrer le numéro de téléphone"));
 
 		if (Dossier_administratif.dossier_patient_existe(numero) != null)
@@ -52,18 +54,26 @@ public class Dossier_administratif extends Dossier {
 		return "Dossier_administratif{" + "date_adhesion=" + date_adhesion + ", date_sortie=" + date_sortie
 				+ ", factures=" + factures + '}';
 	}
+	/**
+	 * Pour afficher l'ensemble des dossiers m�dicaux.
+	 */
 	public static void afficher_dossiers_administratifs() {
-		/**
-		 * Pour afficher l'ensemble des dossiers m�dicaux.
-		 */
+		
 		for (Dossier_administratif dossier : dossiers_administratifs) {
 			System.out.println(dossier);
 		}
 	}
+	/**
+	 * Ajouter une nouvelle facture au dossier administratif.
+	 */
 	public void ajouter_facture() {
 		factures.add(Facture.etablir_facture());
 	}
 	
+	/**
+	 * G�n�rer rapidement un dossier administratif
+	 * @return
+	 */
 	public static Dossier_administratif populate() {
 		Dossier_administratif dossier = new Dossier_administratif("17-03-202", new Patient("Alioune", "Sarr", 'M', "17-09-1992",776735974, "Mbour3"), "17-03-202");
 		dossiers_administratifs.add(dossier);

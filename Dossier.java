@@ -1,7 +1,10 @@
 package hospitalisation;
 
-
+/**
+ * Classe mére dossier. Peut etre médical comme administratif
+ */
 public class Dossier {
+	
     public String date_creation;
     public Patient patient;
     

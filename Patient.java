@@ -14,7 +14,6 @@ public class Patient {
 		this.date_de_naissance = date_de_naissance;// new SimpleDateFormat("ddMMyy").format(new Date());
 		this.adresse = adresse;
 		this.telephone = telephone;
-		System.out.println(telephone);
 	}
 	
 	
