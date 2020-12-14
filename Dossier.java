@@ -1,13 +1,28 @@
 package hospitalisation;
 
-import java.util.Date;
+import java.util.ArrayList;
 
-public abstract class Dossier {
-    private Date date_creation;
-    private Patients patient;
-    public Dossier(Date date_creation, Patients patient){
+public class Dossier {
+	public static ArrayList<Dossier> tous_les_dossiers = new ArrayList<>();
+
+    public String date_creation;
+    public Patient patient;
+    
+    public Dossier(String date_creation, Patient patient){
         date_creation = this.date_creation;
         patient = this.patient;
     }
-    abstract Dossier getCreate_dossier();
+    Dossier get_or_create_dossier() {
+		return null;
+    };
+    
+    public static Dossier dossier_patient_existe(int telephone) {
+		/**
+		 * Cherche le patient dans la base de donn�es grace � son num�ro de t�l�phone.
+		 */
+		for(Dossier element:tous_les_dossiers) {
+			if (element.patient.telephone == telephone) return element;
+		}
+		return null;
+	}
 }

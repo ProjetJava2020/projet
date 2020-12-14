@@ -1,12 +1,11 @@
 package hospitalisation;
 
-import java.util.Date;
 
 public class Employe {
     String prenom, nom, genre;
     int telephone;
-    Date date_de_naissance;
-    public Employe(String prenom, String nom, int telephone, Date date_de_naissance, String genre){
+    String date_de_naissance;
+    public Employe(String prenom, String nom, int telephone, String date_de_naissance, String genre){
         prenom = this.prenom;
         nom = this.nom;
         telephone = this.telephone;
