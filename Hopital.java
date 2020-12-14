@@ -19,6 +19,18 @@ public class Hopital {
         }
         return null;
     }
+    public static Hopital populate() {
+    	/**
+    	 * Fonction pour générer rapidement un hopital pour les besoins de test.
+    	 */
+    	Hopital hopital = new Hopital("Sokhna Cambell", "Cité Niakh");
+    	ArrayList<Lits> lits = new ArrayList<>();
+    	lits.add(new Lits(3));
+    	Salle_hospitalisation salle = new Salle_hospitalisation("E", 12, lits);
+    	hopital.salles.add(salle);
+    	return hopital;
+    	
+    }
     @Override
     public String toString() {
         return "Hopital{" +

@@ -46,4 +46,10 @@ public class Dossier_administratif extends Dossier {
 	public void ajouter_facture() {
 		factures.add(Facture.etablir_facture());
 	}
+	
+	public static Dossier_administratif populate() {
+		Dossier_administratif dossier = new Dossier_administratif("17-03-202", new Patient("Alioune", "Sarr", 'M', "17-09-1992",776735974, "Mbour3"), "17-03-202");
+		tous_les_dossiers.add(dossier);
+    	return dossier;
+    }
 }

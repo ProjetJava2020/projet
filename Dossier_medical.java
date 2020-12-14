@@ -80,5 +80,10 @@ public class Dossier_medical extends Dossier {
     public Dossier_medical set_autres_informations() {
         return null;
     }
+    public static Dossier_medical populate() {
+    	Dossier_medical dossier = new Dossier_medical("17-03-202", new Patient("Ali", "Mbaye Nder", 'M', "17-09-1999",776735974, "Mbour3"), "O+", "");
+		tous_les_dossiers.add(dossier);
+    	return dossier;
+    }
 
 }

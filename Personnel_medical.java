@@ -11,6 +11,9 @@ public class Personnel_medical extends Employe{
     }
     
     public static Personnel_medical populate() {
+    	/**
+    	 * Fonction pour générer rapidement un personnel médical pour les besoins de test.
+    	 */
     	return new Personnel_medical("Alioune", "Sarr", 785555534, "17-09-1992", "M", "medecin", "Ophtalmologue");
     }
     
