@@ -18,6 +18,8 @@ public class Dossier_administratif extends Dossier {
 	}
 	/**
 	 * Cherche le patient dans la base de donnï¿½es grace ï¿½ son numï¿½ro de tï¿½lï¿½phone.
+	 * @param numero_telephone
+	 * @return Dossier_administratif
 	 */
 	public static Dossier dossier_patient_existe(int telephone) {
 		
@@ -72,7 +74,7 @@ public class Dossier_administratif extends Dossier {
 	
 	/**
 	 * Générer rapidement un dossier administratif
-	 * @return
+	 * @return Dossier_administratif
 	 */
 	public static Dossier_administratif populate() {
 		Dossier_administratif dossier = new Dossier_administratif("17-03-202", new Patient("Alioune", "Sarr", 'M', "17-09-1992",776735974, "Mbour3"), "17-03-202");

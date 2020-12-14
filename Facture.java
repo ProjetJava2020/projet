@@ -22,6 +22,7 @@ public class Facture {
     }
     /**
      * Fonction pour créer une nouvelle facture.
+     * @return facture
      */
     public static Facture etablir_facture() {
         

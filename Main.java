@@ -106,7 +106,7 @@ public class Main {
 							case 3:
 								dossier_m.attribuer_medecin(CustomScanner.scan("Entrer le prénom du médecin"),
 										CustomScanner.scan("Entrer le nom du médecin"),
-										Integer.parseInt(CustomScanner.scan("Entrer son numéro de téléphone")));
+										Integer.parseInt(CustomScanner.scan("Entrer son numéro de téléphone")), hopital);
 								break;
 							case 4:
 								dossier_m.attribuer_lit(hopital);

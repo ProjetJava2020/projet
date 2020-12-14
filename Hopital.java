@@ -16,7 +16,7 @@ public class Hopital {
 	 * Cette fonction nous permet de trouver un lit disponible dans un hopital. Elle
 	 * renverra le premier lit disponible.
 	 * 
-	 * @return
+	 * @return lit disponible
 	 */
 	public Lits avoir_lit_disponible() {
 		for (Salle_hospitalisation element : salles) {
@@ -30,6 +30,7 @@ public class Hopital {
 
 	/**
 	 * Fonction pour générer rapidement un hopital pour les besoins de test.
+	 * @return hopital
 	 */
 	public static Hopital populate() {
 

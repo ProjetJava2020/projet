@@ -53,22 +53,27 @@ public class Dossier_medical extends Dossier {
 		return Examen.creer_examen(this.patient);
 	}
 
-	public void attribuer_medecin(String prenom, String nom, int numero) {
-		for (Personnel_medical personnel : Personnel_medical.personnels_medicaux) {
-			if (personnel.prenom == prenom && personnel.nom == nom && personnel.telephone == numero
-					&& personnel.titre == "medecin")
-			{
-				this.medecin_traitant = personnel;
-				System.out.println("Le médecin " +  personnel + "a correctement été attribué!");
-				return;
+	public void attribuer_medecin(String prenom, String nom, int numero, Hopital hopital) {
+		for (Employe personnel : hopital.employes) {
+			try {
+				if (personnel.prenom == prenom && personnel.nom == nom && personnel.telephone == numero
+						&& ((Personnel_medical) personnel).titre == "medecin")
+				{
+					this.medecin_traitant = (Personnel_medical) personnel;
+					System.out.println("Le médecin " +  personnel + "a correctement été attribué!");
+					return;
+				}
 			}
-			
+			catch(Exception e) {
+				System.out.println(e.getMessage());
+			}
 		}
 		System.out.println("Médecin introuvable.");
 	}
 	/**
 	 * Cette fonction permet d'attribuer un lit au patient. Pour cela, on s'aide de
 	 * la fonction avoir_lit_disponible qui renvoie le premier lit non-occupÃ©.
+	 * @param hopital
 	 */
 	public void attribuer_lit(Hopital hopital) {
 		
@@ -104,6 +109,8 @@ public class Dossier_medical extends Dossier {
 	/**
 	 * Cherche le patient dans la base de donnï¿½es grace ï¿½ son numï¿½ro de
 	 * tï¿½lï¿½phone.
+	 * @param numero_telephone
+	 * @return dossier_medical
 	 */
 	public static Dossier_medical dossier_patient_existe(int telephone) {
 		
@@ -135,16 +142,16 @@ public class Dossier_medical extends Dossier {
 	 * Enter d'atres informations relatives au dossier médical.
 	 * @param titre
 	 * @param description
-	 * @return
+	 * @return description
 	 */
-	public Dossier_medical entrer_autres_informations(String titre, Object description) {
+	public Object entrer_autres_informations(String titre, Object description) {
 		autres_informations.put(titre, description);
-		return (Dossier_medical) autres_informations.get(titre);
+		return autres_informations.get(titre);
 		
 	}
 	/**
 	 * Générer rapidement un dossier médical à des fins de test.
-	 * @return
+	 * @return dossier medical
 	 */
 	public static Dossier_medical populate() {
 		Dossier_medical dossier = new Dossier_medical("17-03-202",
