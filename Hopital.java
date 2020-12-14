@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public class Hopital {
     String nom_complet, adresse;
     ArrayList<Salle_hospitalisation> salles = new ArrayList<>();
-
+    ArrayList<Employe> employes = new ArrayList<>();
     public Hopital(String nom_complet, String adresse){
         nom_complet = this.nom_complet;
         adresse = this.adresse;
@@ -15,7 +15,6 @@ public class Hopital {
             for(Lits lit : element.lits){
                 if (!lit.estOccupe) return lit;
             }
-            System.out.println("Pas de lits disponibles pour le moment");
         }
         return null;
     }
@@ -24,6 +23,8 @@ public class Hopital {
     	 * Fonction pour générer rapidement un hopital pour les besoins de test.
     	 */
     	Hopital hopital = new Hopital("Sokhna Cambell", "Cité Niakh");
+    	hopital.employes.add(Personnel_medical.populate());
+    	hopital.employes.add(Personnel_administratif.populate());
     	ArrayList<Lits> lits = new ArrayList<>();
     	lits.add(new Lits(3));
     	Salle_hospitalisation salle = new Salle_hospitalisation("E", 12, lits);
@@ -36,6 +37,8 @@ public class Hopital {
         return "Hopital{" +
                 "nom_complet='" + nom_complet + '\'' +
                 ", adresse='" + adresse + '\'' +
+                ", personnel='" + employes + '\'' +
+                ", salles='" + salles + '\'' +
                 '}';
     }
 }

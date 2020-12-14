@@ -12,4 +12,8 @@ public class Employe {
         date_de_naissance = this.date_de_naissance;
         genre = this.genre;
     }
+    @Override
+    public String toString() {
+    	return "{Prenom:" +prenom + "/nom:" + nom + "/genre:" + genre + "/téléphone: "+ telephone;
+    }
 }
