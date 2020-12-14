@@ -1,6 +1,5 @@
 package hospitalisation;
 
-import java.util.Date;
 
 public class Employe {
     String prenom, nom, genre;

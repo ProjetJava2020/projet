@@ -1,7 +1,6 @@
 package hospitalisation;
 
 import java.util.ArrayList;
-import java.util.Date;
 
 public class Dossier {
 	public static ArrayList<Dossier> tous_les_dossiers = new ArrayList<>();

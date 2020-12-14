@@ -10,7 +10,6 @@ public class Examen {
 	String imagerie;
 
 	public Examen(String date_examen, String type, String imagerie) {
-		patient = this.patient;
 		date_examen = this.date_examen;
 		type = this.type;
 		imagerie = this.imagerie;

@@ -2,10 +2,10 @@ package hospitalisation;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Date;
 
 public class Dossier_administratif extends Dossier {
+	
 	public static ArrayList<Dossier_administratif> dossiers_administratifs = new ArrayList<>(); // Variable contenant
 																								// l'ensemble des																					// dossiers
 																								// administratifs

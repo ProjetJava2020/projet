@@ -1,6 +1,5 @@
 package hospitalisation;
 
-import java.util.Date;
 
 public class Personnel_administratif extends Employe {
     String role;

@@ -1,17 +1,18 @@
 package hospitalisation;
 
 import java.text.SimpleDateFormat;
-import java.time.Instant;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 
 public class Dossier_medical extends Dossier {
+	
+	public static ArrayList<Dossier_medical> tous_les_dossiers = new ArrayList<>();
+
 	String groupe_sanguin, allergies;
 	Personnel_medical medecin_traitant;
 	HashMap<String, Object> autres_informations;
 	ArrayList<Controle_medical> controles_medicaux = new ArrayList<Controle_medical>();
-	public static ArrayList<Dossier_medical> tous_les_dossiers = new ArrayList<>();
 
 	public Dossier_medical(String date_creation, Patient patient, String groupe_sanguin, String allergies) {
 		super(date_creation, patient);
