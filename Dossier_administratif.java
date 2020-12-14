@@ -7,8 +7,8 @@ import java.util.Date;
 public class Dossier_administratif extends Dossier {
 	
 	public static ArrayList<Dossier_administratif> dossiers_administratifs = new ArrayList<>(); // Variable contenant
-																								// l'ensemble des																					// dossiers
-																								// administratifs
+	// l'ensemble des																					// dossiers
+	// administratifs
 	String date_adhesion, date_sortie;
 	ArrayList<Facture> factures;
 
@@ -20,18 +20,18 @@ public class Dossier_administratif extends Dossier {
 	@Override
 	Dossier get_or_create_dossier() {
 		/***
-		 * Le personnel administratif entre en premier lieux le num�ro de
-		 * t�l�phone. S'il correspond � un patient existent, le dossier est
-		 * directement retourn�. Sinon, il continue � entrer les autres informations
+		 * Le personnel administratif entre en premier lieux le numï¿½ro de
+		 * tï¿½lï¿½phone. S'il correspond ï¿½ un patient existent, le dossier est
+		 * directement retournï¿½. Sinon, il continue ï¿½ entrer les autres informations
 		 */
 		String creation = new SimpleDateFormat("dd-MM-yy").format(new Date());
-		int numero = Integer.parseInt(CustomScanner.scan("Entrer le num�ro de t�l�phone"));
+		int numero = Integer.parseInt(CustomScanner.scan("Entrer le numéro de téléphone"));
 
 		if (Dossier.dossier_patient_existe(numero) != null)
 			return Dossier.dossier_patient_existe(numero);
-		String date_adhesion = CustomScanner.scan("Entrer la date d'adh�sion");
+		String date_adhesion = CustomScanner.scan("Entrer la date d'adhésion");
 
-		Patient patient = new Patient(CustomScanner.scan("Entrer le nom"), CustomScanner.scan("Entrer le pr�nom"),
+		Patient patient = new Patient(CustomScanner.scan("Entrer le nom"), CustomScanner.scan("Entrer le prénom"),
 				CustomScanner.scan("Entrer le genre (M/F)").toCharArray()[0],
 				CustomScanner.scan("Entrer la date de naissance"), numero, CustomScanner.scan("Entrer l'adresse"));
 		return new Dossier_administratif(creation, patient, date_adhesion);
