@@ -1,13 +1,24 @@
 package hospitalisation;
 
-import java.util.Date;
-
-public abstract class Dossier {
-    private Date date_creation;
-    private Patients patient;
-    public Dossier(Date date_creation, Patients patient){
-        date_creation = this.date_creation;
-        patient = this.patient;
+/**
+ * Classe mére dossier. Peut etre médical comme administratif
+ */
+public class Dossier {
+	
+    public String date_creation;
+    public Patient patient;
+    
+    public Dossier(String date_creation, Patient patient){
+        this.date_creation = date_creation;
+        this.patient = patient;
     }
-    abstract Dossier getCreate_dossier();
+    public Dossier() {}
+    Dossier get_or_create_dossier() {
+		return null;
+    };
+    
+    public Patient getPatient() {
+    	return this.patient; 
+    }
+    
 }
